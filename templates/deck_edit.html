@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+  <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}" />
+  <link rel="stylesheet" href="{{url_for('static',filename='css/deck_edit.css')}}" />
+	<meta name="author" content="François Boissel" />
+  <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+  <title>Projet Flask</title>
+  </head>
+  <body> 
+    <nav>
+
+      <ul class="nav-links">
+        <li class="not-active-link"><a href="/">Accueil</a></li>
+        <li class="active-link"><a href="/decks">Decks</a></li>
+        <li class="not-active-link"><a href="/study/choice">étudier</a></li>
+      </ul>
+      <div class="burger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
+    </nav>
+    <div class="animation-area">
+      <div class="error">
+        <h1>Vous ne pouvez pas utiliser cette option avec cette résolution d'écran</h1>
+      </div>
+      <div class="add-del">
+        <p>Supprimer un élément de/d' {{name_deck}} :</p>
+        <form action = "http://127.0.0.1:1664/decks/edit/delete_confirm" method="post">
+        <select class="select-css" name = "select_word">
+          {% for value,term,def in listWord%}
+          <option value="{{value}}">{{term}} | {{def}}</option>
+          {% endfor %}
+        </select>
+        <input type="submit" name="confirm" class = "delete" value="Confirmer"/>
+      </form>
+        <p>OU</p>
+        <form action="http://127.0.0.1:1664/decks/edit" method="post">
+          <label>Ajouter un élément à {{name_deck}}:</label>
+          <input class="answer" type="text" name ="term"  placeholder="Terme" value=""/>
+          <input class="answer" type="text" name ="def"  placeholder="Définition" value=""/>
+          <input type="submit" name="confirm" value="Confirmer"/>
+      </form> 
+
+      
+      </div>
+		<ul class="box-area">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+
+
+    <script src="{{url_for('static',filename='js/app.js')}}"></script>
+  </body>
+</html>

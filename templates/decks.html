@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+  <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}" />
+  <link rel="stylesheet" href="{{url_for('static',filename='css/decks.css')}}" />
+	<meta name="author" content="François Boissel" />
+  <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+  <title>Projet Flask</title>
+  </head>
+  <body> 
+    <nav>
+
+      <ul class="nav-links">
+        <li class="not-active-link"><a href="/">Accueil</a></li>
+        <li class="active-link"><a href="/decks">Decks</a></li>
+        <li class="not-active-link"><a href="/study/choice">étudier</a></li>
+      </ul>
+      <div class="burger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
+    </nav>
+    <div class="animation-area">
+      <div class="error">
+        <h1>Vous ne pouvez pas utiliser cette option avec cette résolution d'écran</h1>
+      </div>
+      <div class="liste">
+        <p>Éditer un deck :</p>
+        <form action="/decks/edit" method="post">
+        <select class="select-css"  name="list_deck">
+          {% for value,name in listDeck%}
+          <option value="{{value}}">{{name}}</option>
+          {% endfor %}
+        </select>
+        <input class = "edit" type="submit" name="confirm" value="Confirmer"/>
+      </form>
+      <p>OU</p>
+      <p>Supprimer un deck</p>
+        <form action="/decks/confirm_delete" method="post">
+        <select class="select-css"  name="list_deck_delete">
+          {% for value,name in listDeck%}
+          <option value="{{value}}">{{name}}</option>
+          {% endfor %}
+        </select>
+        <input class = "edit" type="submit" name="confirm" value="Confirmer"/>
+      </form>
+      
+        <p>OU</p>
+        <form action="http://127.0.0.1:1664/decks" method="post">
+          <label>Créer un nouveau deck :</label>
+          <input class="answer" type="text" name ="nm-deck"  placeholder="Nom du Deck" value=""/>
+          <input type="submit" name="confirm" value="Confirmer"/>
+      </form> 
+      
+      </div>
+		<ul class="box-area">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+
+
+    <script src="{{url_for('static',filename='js/app.js')}}"></script>
+  </body>
+</html>
