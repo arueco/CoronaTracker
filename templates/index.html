@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+  <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}" />
+  <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}" />
+	<meta name="author" content="François Boissel" />
+  <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+  <title>Projet Flask</title>
+  </head>
+  <body>
+    
+    <nav>
+      <ul class="nav-links">
+        <li class="active-link"><a href="/" >Accueil</a></li>
+        <li class="not-active-link"><a href="/decks">Decks</a></li>
+        <li class="not-active-link"><a href="/study/choice">étudier</a></li>
+      </ul>
+      <div class="burger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
+    </nav>
+    <div class="animation-area">
+        <div class="title">
+            <h1>Bienvenue</h1>
+            <p>Afin de créer ou d'éditer une liste de mot, cliquez sur decks. Si vous souhaitez étudier une liste de mot existante, cliquez sur étudier.</p>
+        </div>   
+		<ul class="box-area">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+    <script src="{{url_for('static',filename='js/app.js')}}"></script>
+  </body>
+</html>
