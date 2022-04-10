@@ -20,7 +20,7 @@ I've also made a homepage :
  
 
 
-The project is no longer updated, first, because the algorithm is bad and it's slow ... Secondly because I'm don't want to make statistics on people's misfortune.
+The project is no longer updated, first, because the algorithm is bad and it's slow ... Secondly because I don't want to make statistics on people's misfortune.
 
 
 
